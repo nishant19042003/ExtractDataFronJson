@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import { fields } from '../categories/categories'
 import { processTransactions } from '../InvoiceProcess/paytm'
+import PdfViewer from '../comp/pdfViewer'
 function ExpaceTracker() {
     const [currfields, setcurrFields] = useState(fields);
     const [data,setdata]=useState(0);
@@ -15,6 +16,9 @@ function ExpaceTracker() {
   return (
     <div>
         <h1 className='text-3xl font-bold underline bg-amber-300 text-center p-5'>Expense Tracker</h1>
+        
+        <PdfViewer/>
+        
         
       {
         currfields.map((field)=>{
