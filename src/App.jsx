@@ -8,13 +8,13 @@ function App() {
 
   // Handle login
   const handleLogin = () => {
-    window.location.href = "http://localhost:3000/email/auth";
+    window.location.href = "https://gmailinvoice.onrender.com/email/auth";
   };
 
   // Fetch emails
   const handleFetchEmails = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/email/emails", {
+      const res = await axios.get("https://gmailinvoice.onrender.com/email/emails", {
         withCredentials: true,
       });
       setEmails(res.data);
