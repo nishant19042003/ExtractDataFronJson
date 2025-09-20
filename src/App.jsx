@@ -5,6 +5,7 @@ import InvoicePage from "./comp/show";
 function App() {
   const [emails, setEmails] = useState([]);
   const [authenticated, setAuthenticated] = useState(false);
+  const [data, setdata] = useState(false);
 
   // Handle login
   const handleLogin = () => {
@@ -18,6 +19,8 @@ function App() {
         withCredentials: true,
       });
       setEmails(res.data);
+      setdata(true);
+      console.log("loading");
     } catch (err) {
       console.error("Error:", err);
     }
@@ -33,12 +36,13 @@ function App() {
   return (
     <div>
       <h1 className="text-2xl font-bold bg-amber-200">Email Fetcher</h1>
-
+      
       {!authenticated ? (
         <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={handleLogin}>Login with Google</button>
       ) : (
         <>
           <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={handleFetchEmails}>Fetch Emails</button>
+          
           <ul>
   {emails.map((email) => (
     <li key={email.id}>
