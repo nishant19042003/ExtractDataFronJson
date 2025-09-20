@@ -15,12 +15,13 @@ function App() {
   // Fetch emails
   const handleFetchEmails = async () => {
     try {
+      console.log("loading");
       const res = await axios.get("https://gmailinvoice.onrender.com/email/emails", {
         withCredentials: true,
       });
       setEmails(res.data);
       setdata(true);
-      console.log("loading");
+      
     } catch (err) {
       console.error("Error:", err);
     }
@@ -36,7 +37,7 @@ function App() {
   return (
     <div>
       <h1 className="text-2xl font-bold bg-amber-200">Email Fetcher</h1>
-      {data?(<h1 className="text-2xl font-bold bg-amber-200">Email Fetcher</h1>)}
+      
       
       {!authenticated ? (
         <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={handleLogin}>Login with Google</button>
