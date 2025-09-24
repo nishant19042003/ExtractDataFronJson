@@ -7,20 +7,23 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  CartesianGrid,
+  CartesianGrid,ResponsiveContainer,
 } from "recharts";
 import { PieChart, Pie, Cell } from "recharts";
-import { category, catfields } from "../categories/categories";
+import { category, catfields, monthslist } from "../categories/categories";
 
 function Categories() {
   const [emails, setEmails] = useState([]);
   const [fields, setFields] = useState(catfields);
-
+  const [months, setMonths] = useState(monthslist);
   
-    const handleProcess = async() => {
-     const result = await process(emails,fields,category);
-     setFields(result);
-    }
+  const handleProcess = async() => {
+    console.log("Processing emails...");
+    const result = await process(emails,fields,category,months);
+    setFields(result.updatedFields);
+    setMonths(result.monthslist);
+    console.log("Processed fields:", result);
+  }
    
 
   useEffect(() => {
@@ -28,7 +31,7 @@ function Categories() {
       console.log("Fetching emails...");
       const response = await axios.get(
         "http://localhost:3000/email/emails",
-        { withCredentials: true }
+        {  withCredentials: true }
       );
       console.log("Fetched emails:", response.data);
       setEmails(response.data);
@@ -79,29 +82,33 @@ function Categories() {
       })}
         </ul>
       </div>
-      <div className="max-w-4xl mx-auto mt-12 bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition">
+     <div className="max-w-4xl mx-auto mt-12 bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition">
         {/* Bar Chart Card */}
         <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
           <h2 className="text-xl font-bold text-gray-700 mb-4">
-            Spending by Category
+            Spending by Month
           </h2>
-          <BarChart width={400} height={300} data={fields}>
-            <CartesianGrid stroke="#eee" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            {/* one bar with per-field colors */}
-            <Bar dataKey="amount" radius={[6, 6, 0, 0]}>
-              {fields.map((entry, index) => (
-                <Cell
-                  key={`bar-cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Bar>
-          </BarChart>
+          <div className="w-full h-80"> {/* control height with Tailwind */}
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={months}>
+                <CartesianGrid stroke="#eee" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="amount" radius={[6, 6, 0, 0]}>
+                  {months.map((entry, index) => (
+                    <Cell
+                      key={`bar-cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
+
       <div className="max-w-4xl mx-auto mt-12 bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition">
         {/* Pie Chart Card */}
         <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition">
