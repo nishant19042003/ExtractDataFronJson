@@ -1,5 +1,5 @@
 //this is function which take responce and process and data 
-export const fields=[{"name":"Fruit","amount":0},{"name":"Groceries","amount":0},{"name":"Electronics","amount":0},
+export const catfields=[{"name":"Fruit","amount":0},{"name":"Groceries","amount":0},{"name":"Electronics","amount":0},
   {"name":"Clothing","amount":0},{"name":"Travel","amount":0},{"name":"Entertainment","amount":0},
   {"name":"Bills","amount":0},{"name":"Health","amount":0},
     {"name":"Education","amount":0},{"name":"Home","amount":0},
@@ -8,7 +8,7 @@ export const fields=[{"name":"Fruit","amount":0},{"name":"Groceries","amount":0}
     {"name":"Beauty","amount":0},{"name":"Gifts","amount":0},{"name":"Charity","amount":0},
     {"name":"Investments","amount":0},{"name":"Taxes","amount":0},{"name":"Miscellaneous","amount":0},
     {"name":"Food","amount":0},{"name":"Other","amount":0},{"name":"Sports","amount":0}];
-export const categories = {
+export const category = {
   "Fruit": [
     "apple", "banana", "orange", "mango", "grape", "pineapple", "watermelon", "kiwi", "papaya", "strawberry",
     "blueberry", "pomegranate", "lychee", "cherry", "peach", "pear", "plum", "apricot", "fig", "guava",
@@ -27,7 +27,7 @@ export const categories = {
     "nipa palm fruit", "pequi", "pitomba", "safou", "salmonberry", "sandoricum", "santol plum", "soncoya", "tropical almond", "water apple"
 
   ],
-  "Groceries": ["Blinkit", "BigBasket", "Grofers", "Amazon Fresh", "Walmart Grocery", "Instacart", "Kroger", "Safeway", "Whole Foods", "Trader Joe's",
+  "Groceries": [ 
     "rice", "wheat", "flour", "sugar", "salt", "milk", "bread", "butter", "cheese", "oil",
     "eggs", "yogurt", "honey", "pasta", "noodles", "cereal", "corn", "beans", "lentils", "dal",
     "spices", "pepper", "turmeric", "ginger", "garlic", "onion", "tomato", "potato", "carrot",
@@ -46,7 +46,7 @@ export const categories = {
     "herbal tea", "black tea", "condensed milk", "evaporated milk", "milk powder", "milk cream", "whipped cream", "coconut milk", "almond milk", "soy milk"
 
   ],
-  "Electronics": [
+  "Electronics": ["buds","Earbuds","Samsung Galaxy M15","Screen Protector","Noise Buds Z2 Wireless Earbuds",
     "laptop", "desktop", "phone", "tablet", "smartwatch", "earbuds", "headphones", "camera",
     "printer", "monitor", "keyboard", "mouse", "charger", "powerbank", "speaker", "tv", "projector",
     "router", "modem", "hard drive", "ssd", "usb", "hdmi", "adapter", "microphone", "webcam",
@@ -83,7 +83,7 @@ export const categories = {
     "loafers", "oxfords", "derby shoes", "brogues", "heels", "wedges", "platform shoes", "clogs", "moccasins", "espadrilles"
 
   ],
-  "Travel": [
+  "Travel": ["Ola Mini",
     "bus", "train", "flight", "cab", "taxi", "uber", "ola", "metro", "ticket", "hotel",
     "hostel", "resort", "cruise", "ferry", "car rental", "bike rental", "luggage", "passport",
     "visa", "insurance", "tour guide", "map", "backpack", "suitcase", "tent", "sleeping bag",
@@ -101,7 +101,7 @@ export const categories = {
     "travel insurance papers", "medical kit", "bandages", "antiseptic cream", "painkillers", "motion sickness tablets", "allergy tablets", "water filter", "water purifier", "iodine tablets",
     "folding bike", "electric scooter", "segway", "roller skates", "skateboard", "caravan", "motorhome", "campervan", "yacht", "sailboat"
 ],
-"Food": ["Zomato", "Swiggy", "Uber Eats", "Domino's", "Pizza Hut", "KFC", "McDonald's", "Subway", "Starbucks", "Dunkin' Donuts",
+"Food": ["Paneer Butter Masala","Garlic Naan","Chicken Biryani","Butter Chicken","Veg Pulao","Chole Bhature",
     "restaurant", "cafe", "bakery", "fast food", "dessert", "snack", "meal", "breakfast", "lunch", "dinner",
     "burger", "cheeseburger", "veggie burger", "pizza", "margherita pizza", "pepperoni pizza", "pasta", "spaghetti", "penne", "lasagna",
     "sandwich", "sub", "wrap", "burrito", "taco", "quesadilla", "noodles", "ramen", "udon", "dumplings",
@@ -205,7 +205,7 @@ export const categories = {
     "outdoor furniture", "patio chair", "garden table", "swing", "hammock", "barbecue grill", "outdoor light", "watering can", "hose", "sprinkler",
     "compost bin", "recycling bin", "garbage bag", "dustbin", "storage jar", "spice rack", "cutting board", "measuring cup", "measuring spoon", "rolling pin"
   ],
-  "Sports": ["Hudle", "Decathlon", "Nike", "Adidas", "Puma", "Reebok", "Under Armour", "Asics", "New Balance", "Skechers",
+  "Sports": [
     "football", "soccer", "basketball", "tennis", "badminton", "cricket", "hockey", "golf",
     "table tennis", "volleyball", "rugby", "swimming", "cycling", "running shoes", "helmet",
     "gloves", "bat", "ball", "net", "goal", "court", "stadium", "track", "bike", "skates",
@@ -299,9 +299,6 @@ export const categories = {
     "science kit", "robotics kit", "coding toy", "experiment set", "magnifying glass", "binocular toy", "globe toy", "map puzzle", "space kit", "dinosaur set",
     "farm set", "zoo animals", "wildlife set", "horse stable", "pet toy set", "aquarium toy", "pirate ship", "castle set", "knight toy", "soldier toy"
   ],
-
-  
-
   "Drinks": [
     "water", "sparkling water", "mineral water", "juice", "orange juice", "apple juice", "grape juice", "cranberry juice", "pineapple juice", "tomato juice",
     "carrot juice", "beetroot juice", "watermelon juice", "pomegranate juice", "lemonade", "lime soda", "ginger ale", "cola", "soda", "tonic water",
@@ -313,7 +310,6 @@ export const categories = {
     "beer", "lager", "ale", "stout", "cider", "wine", "red wine", "white wine", "rose wine", "champagne",
     "hot chocolate", "cocoa", "chai latte", "matcha", "turmeric latte", "ginger tea", "detox drink", "buttermilk", "lassi", "falooda"
   ],
-
   "Shopping": [
     "myntra", "flipkart", "amazon", "snapdeal", "ajio", "shopclues", "ebay", "tatacliq", "paytm mall", "shopee",
     "mall", "store", "retail", "market", "supermarket", "grocery store", "department store", "outlet", "boutique", "thrift store",
@@ -326,7 +322,6 @@ export const categories = {
     "cosmetics", "makeup", "skincare", "haircare", "fragrance", "jewelry", "necklace", "ring", "bracelet", "watch",
     "bags", "handbag", "backpack", "wallet", "belt", "sunglasses", "gadgets", "headphones", "speaker", "smartwatch"
   ],
-
     "PersonalCareHygiene": [
     "toothbrush", "toothpaste", "floss", "mouthwash", "soap", "body wash", "face wash", "cleanser", "toner", "moisturizer",
     "deodorant", "roll-on", "perfume", "shampoo", "conditioner", "hair oil", "hair gel", "hair spray", "serum", "razor",
@@ -338,7 +333,6 @@ export const categories = {
     "cotton swabs", "tweezers", "mirror", "grooming kit", "grooming scissors", "beard oil", "beard wax", "beard balm", "massage oil", "therapeutic oil",
     "ayurvedic oil", "herbal powder", "organic soap", "face roller", "jade roller", "gua sha", "foot scrub", "foot spa", "electric toothbrush", "travel kit"
   ],
-
   "EventsGifts": [
     "birthday gift", "birthday card", "gift box", "wrapping paper", "ribbon", "balloon", "cake", "candles", "party hat", "streamers",
     "party supplies", "confetti", "banner", "party favor", "anniversary gift", "wedding gift", "flowers", "bouquet", "chocolates", "greeting card",
@@ -350,7 +344,6 @@ export const categories = {
     "stationery", "pen set", "marker set", "highlighter set", "notebook", "diary", "certificate frame", "trophy", "medal", "award",
     "plush toy", "figurine", "art kit", "painting kit", "crochet kit", "knitting kit", "cookbook", "recipe book", "music CD", "movie DVD"
   ],
-
   "CharityDonations": [
     "donation", "charity", "offering", "temple donation", "church donation", "mosque donation", "NGO", "crowdfunding", "social cause", "fundraiser",
     "charity event", "blood donation", "food donation", "clothes donation", "toy donation", "volunteering", "helping hand", "sponsorship", "grant", "relief fund",
@@ -361,7 +354,6 @@ export const categories = {
     "fund distribution", "community upliftment", "microfinance", "donor card", "membership donation", "regular donation", "emergency aid", "disaster relief fund", "charity drive", "donation campaign",
     "clothes drive", "food drive", "book drive", "medical camp", "blood camp", "charity marathon", "charity walk", "volunteer drive", "social awareness", "donor recognition"
   ],
-
   "SavingsInvestments": [
     "savings account", "fixed deposit", "FD", "recurring deposit", "RD", "SIP", "mutual fund", "stocks", "bonds", "crypto",
     "bitcoin", "ethereum", "gold", "silver", "real estate", "pension", "retirement fund", "insurance", "life insurance", "health insurance",
@@ -373,7 +365,6 @@ export const categories = {
     "tax saving", "tax benefit", "section 80C", "section 80D", "long-term investment", "short-term investment", "liquid fund", "debt fund", "equity fund", "hybrid fund",
     "retirement corpus", "financial goal", "asset growth", "wealth creation", "compound interest", "safety net", "financial security", "liquidity", "capital protection", "financial literacy"
   ],
-
   "RepairsMaintenance": [
     "plumber", "electrician", "carpenter", "mechanic", "renovation", "paint", "repair", "service", "spare parts", "tool kit",
     "wrench", "screwdriver", "hammer", "nails", "screws", "drill", "saw", "adhesive", "sealant", "pipe",
@@ -385,7 +376,6 @@ export const categories = {
     "adhesive tape", "drain cleaning", "pipe fitting", "socket repair", "circuit repair", "fuse replacement", "wiring", "insulation", "switch repair", "fan blade",
     "motor repair", "compressor repair", "pump repair", "valve repair", "chimney cleaning", "gutter repair", "door hinge", "window hinge", "key replacement", "service charge"
   ],
-
   "TransportationFuel": [
     "petrol", "diesel", "CNG", "LPG", "fuel", "gasoline", "electric charging", "toll", "toll plaza", "parking",
     "metro card", "bus pass", "train pass", "rail ticket", "flight ticket", "airline charge", "cab", "taxi", "uber", "ola",
@@ -396,7 +386,6 @@ export const categories = {
     "helmet", "gloves", "jack", "tool kit", "spare tyre", "wheel alignment", "wheel balancing", "vehicle accessories", "roof rack", "sunglasses",
     "navigation", "GPS", "dashboard camera", "trip meter", "odometer", "speed limit fine", "parking sensor", "reflector", "indicator bulb", "headlight"
   ],
-
   "TechnologySubscriptions": [
     "Netflix", "Prime", "Hotstar", "Disney+", "Hulu", "Spotify", "YouTube Premium", "Apple Music", "Google One", "iCloud",
     "Google Drive", "Dropbox", "Microsoft 365", "Adobe Creative Cloud", "Canva Pro", "VPN subscription", "antivirus", "software license", "app purchase", "app subscription",
@@ -409,3 +398,4 @@ export const categories = {
   ],
   "Other": []
 }
+export const companyCategories = [{name:"Flipkart",amount:0},{"name":"Ola",amount:0},{"name":"Zomato",amount:0}];

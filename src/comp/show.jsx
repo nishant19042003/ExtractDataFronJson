@@ -6,47 +6,68 @@ export default function InvoicePage({ data }) {
   }
 
   return (
-    <div style={{ maxWidth: "600px", margin: "20px auto", fontFamily: "Arial, sans-serif" }}>
-      <h2>{data.company} Order Invoice</h2>
-      <p><strong>Order ID:</strong> {data.orderId}</p>
-      <p><strong>Date:</strong> {data.orderDate}</p>
+    <div className="space-y-6">
+         
+          <div className="flex justify-center">
+            <button
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition"
+              onClick={handleFetchEmails}
+              disabled={loading}
+            >
+              {loading ? "Fetching..." : "Fetch Emails"}
+            </button>
+          </div>
 
-      <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "15px" }}>
-        <thead>
-          <tr style={{ background: "#f4f4f4" }}>
-            <th style={thStyle}>Item</th>
-            <th style={thStyle}>Qty</th>
-            <th style={thStyle}>Price</th>
-            <th style={thStyle}>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.items.map((item, index) => (
-            <tr key={index}>
-              <td style={tdStyle}>{item.name}</td>
-              <td style={tdStyle}>{item.quantity}</td>
-              <td style={tdStyle}>₹{item.price}</td>
-              <td style={tdStyle}>₹{item.total}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          {/* Display Emails */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {emails.length === 0 && !loading && (
+              <p className="text-center text-gray-600 col-span-full">
+                No invoices fetched yet.
+              </p>
+            )}
 
-      <h3 style={{ textAlign: "right", marginTop: "20px" }}>
-        Grand Total: ₹{data.totalAmount}
-      </h3>
-    </div>
+            {emails.map((email, idx) => (
+              <div
+                key={idx}
+                className="bg-white shadow-lg rounded-2xl p-5 border border-gray-200 hover:shadow-xl transition"
+              >
+                <h2 className="text-xl font-semibold text-indigo-700 mb-2">
+                  {email.company || "Unknown Company"}
+                </h2>
+                <p className="text-gray-600">
+                  <span className="font-medium">Order ID:</span>{" "}
+                  {email.orderId || "N/A"}
+                </p>
+                <p className="text-gray-600">
+                  <span className="font-medium">Order Date:</span>{" "}
+                  {email.orderDate || "N/A"}
+                </p>
+
+                {/* Items */}
+                <div className="mt-3">
+                  <h3 className="text-lg font-medium text-gray-800">Items:</h3>
+                  {email.items.length > 0 ? (
+                    <ul className="list-disc list-inside text-gray-700">
+                      {email.items.map((item, i) => (
+                        <li key={i}>
+                          {item.name} — ₹{item.price.toFixed(2)}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-500 text-sm">No items found</p>
+                  )}
+                </div>
+
+                {/* Total */}
+                <div className="mt-4 border-t pt-2">
+                  <p className="text-lg font-semibold text-green-700">
+                    Total: ₹{email.totalAmount?.toFixed(2) || "N/A"}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
   );
 }
-
-const thStyle = {
-  border: "1px solid #ccc",
-  padding: "8px",
-  textAlign: "left"
-};
-
-const tdStyle = {
-  border: "1px solid #ccc",
-  padding: "8px",
-  textAlign: "center"
-};
